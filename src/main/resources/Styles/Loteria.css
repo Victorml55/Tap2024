@@ -1,0 +1,9 @@
+.root{
+    -fx-background-image: url("/images/wallpaperLoteria.jpg");
+    /*-fx-background-repeat: stretch;*/
+}
+.carta-marcador {
+    -fx-text-fill: black;
+    -fx-font-size: 60px;
+    -fx-font-weight: bold;
+}
