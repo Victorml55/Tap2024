@@ -1,4 +1,5 @@
 package com.example.tap2024.vistas;
+
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;

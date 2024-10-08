@@ -1,0 +1,67 @@
+.root{
+    -fx-background-image: url("/images/Buscaminas.png");
+    -fx-background-repeat: stretch;
+    -fx-background-size: 380px;
+    -fx-background-position: center;
+}
+
+
+.button {
+    -fx-background-color: Black;
+    -fx-border-color: white;
+    -fx-border-width: 1px;
+    -fx-font-size: 14px;
+    -fx-text-fill: white;
+}
+
+
+.button:disabled {
+    -fx-background-color: white;
+    -fx-border-color: gray;
+    -fx-text-fill: black;
+}
+
+
+.button.bomb {
+    -fx-background-color: white;
+    -fx-text-fill: white;
+}
+
+
+.button.flag {
+    -fx-background-color: yellow;
+    -fx-text-fill: black;
+}
+
+
+.text-field {
+    -fx-font-size: 16px;
+    -fx-alignment: center;
+}
+
+
+.button#generarButton {
+    -fx-background-color: green;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-pref-width: 200px;
+}
+
+
+.button.number1 {
+    -fx-text-fill: blue;
+}
+
+.button.number2 {
+    -fx-text-fill: green;
+}
+
+.button.number3 {
+    -fx-text-fill: red;
+}
+
+
+.grid-pane {
+    -fx-hgap: 2px;
+    -fx-vgap: 2px;
+}

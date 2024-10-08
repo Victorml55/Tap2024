@@ -1,4 +1,10 @@
 package com.example.tap2024.models;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 public class ClienteDAO {
     private int  idCte;
     private String nomCte;
@@ -36,4 +42,63 @@ public class ClienteDAO {
     public void setEmailCte(String emailCte) {
         this.emailCte = emailCte;
     }
+
+    public void INSERT(){
+        String query= "INSERT INTO tblCliente(nomCte, telCte, emailCte)" + "VALUES('"+this.nomCte+"','"+this.telCte+"','"+this.emailCte+"')";
+
+        try {
+            Statement stmt= Conexion.connection.createStatement();
+            stmt.executeUpdate(query);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void UPDATE() {
+
+        String query = "UPDATE tblCliente SET nomCte = '" + this.nomCte + "'," + "telCte='" + this.telCte + "',emailCte='" + this.emailCte + "' WHERE idCte =" + this.idCte;
+        try {
+            Statement stmt = Conexion.connection.createStatement();
+            stmt.executeUpdate(query);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void DELETE(){
+        String query = "DELETE FROM tblCliente WHERE idCte =" + this.idCte;
+        try {
+            Statement stmt= Conexion.connection.createStatement();
+            stmt.executeUpdate(query);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public ObservableList<ClienteDAO> SELECTALL() {
+        ClienteDAO objCte;
+        String query = "SELECT * FROM tblCliente";
+        ObservableList<ClienteDAO> listaC = FXCollections.observableArrayList();
+        try {
+            Statement stmt = Conexion.connection.createStatement();
+            ResultSet res = stmt.executeQuery(query);
+            while (res.next()) {
+                objCte = new ClienteDAO();
+                objCte.idCte = res.getInt(0);
+                objCte.nomCte = res.getString(1);
+                objCte.telCte = res.getString(2);
+                objCte.emailCte = res.getString(3);
+                listaC.add(objCte);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+
+
+        }
+
+        return listaC;
+    }
+
+
 }
